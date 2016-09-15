@@ -557,8 +557,8 @@ class OneLogin_Saml2_Utils(object):
         :type: string
         """
 
-        root = OneLogin_Saml2_XML.make_root("{%s}container" % OneLogin_Saml2_Constants.NS_SAML)
-        name_id = OneLogin_Saml2_XML.make_child(root, '{%s}NameID' % OneLogin_Saml2_Constants.NS_SAML)
+        root = OneLogin_Saml2_XML.make_root('{%s}container' % OneLogin_Saml2_Constants.NS_SAML, nsmap={'saml': OneLogin_Saml2_Constants.NS_SAML})
+        name_id = OneLogin_Saml2_XML.make_child(root, '{%s}NameID' % OneLogin_Saml2_Constants.NS_SAML, nsmap={'saml2': OneLogin_Saml2_Constants.NS_SAML})
         if sp_nq is not None:
             name_id.set('SPNameQualifier', sp_nq)
         name_id.set('Format', sp_format)
